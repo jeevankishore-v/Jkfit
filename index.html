@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JK Fitness | Push Your Limits</title>
+    <title>JK Fitness | Master Your Strength</title>
     <style>
         /* --- General Reset --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
         }
 
         :root {
-            --primary-color: #ffffff;
-            --accent-color: #ff3e3e; /* Action Red */
-            --bg-dark: #0a0a0a;
-            --bg-card: #1a1a1a;
+            --primary-white: #ffffff;
+            --accent-red: #ff3e3e; 
+            --bg-black: #0a0a0a;
+            --bg-card: #161616;
+            --text-gray: #a0a0a0;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--primary-color);
+            background-color: var(--bg-black);
+            color: var(--primary-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* --- Navigation --- */
@@ -31,19 +33,20 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 10%;
-            background: rgba(0,0,0,0.9);
+            padding: 15px 8%;
+            background: rgba(0, 0, 0, 0.95);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #222;
         }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: var(--accent-color);
+        .logo img {
+            height: 50px; /* Adjust height as needed */
+            width: auto;
+            display: block;
+            /* This filter turns your black logo white so it pops on the dark nav */
+            filter: invert(1) brightness(2); 
         }
 
         nav ul {
@@ -52,25 +55,28 @@
         }
 
         nav ul li {
-            margin-left: 30px;
+            margin-left: 35px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: white;
-            font-weight: 500;
+            color: var(--primary-white);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
 
         nav ul li a:hover {
-            color: var(--accent-color);
+            color: var(--accent-red);
         }
 
         /* --- Hero Section --- */
         .hero {
             height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80') center/cover;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=2070') center/cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -80,179 +86,238 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: clamp(3rem, 8vw, 5rem);
             text-transform: uppercase;
-            margin-bottom: 10px;
-            font-style: italic;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
         }
 
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #ccc;
+            max-width: 600px;
+            margin-bottom: 35px;
+            color: var(--text-gray);
         }
 
         .btn {
-            padding: 15px 40px;
-            background: var(--accent-color);
+            padding: 18px 45px;
+            background: var(--accent-red);
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 800;
             text-transform: uppercase;
-            border-radius: 5px;
-            transition: 0.3s;
+            letter-spacing: 1px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
             background: white;
             color: black;
+            transform: scale(1.05);
         }
 
-        /* --- Services --- */
+        /* --- Stats Bar --- */
+        .stats-bar {
+            background: var(--accent-red);
+            display: flex;
+            justify-content: space-around;
+            padding: 30px 10%;
+            text-align: center;
+        }
+
+        .stat-item h2 { font-size: 2rem; color: white; }
+        .stat-item p { font-size: 0.8rem; text-transform: uppercase; font-weight: bold; }
+
+        /* --- Programs Section --- */
         .section {
-            padding: 80px 10%;
+            padding: 100px 10%;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .section-title span {
+            color: var(--accent-red);
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: var(--bg-card);
-            padding: 40px 20px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
-            border-left: 4px solid var(--accent-color);
+            padding: 50px 30px;
+            border-bottom: 5px solid transparent;
+            transition: 0.4s;
+            cursor: default;
         }
 
         .card:hover {
-            transform: translateY(-10px);
+            border-bottom: 5px solid var(--accent-red);
+            background: #1f1f1f;
+            transform: translateY(-5px);
         }
 
         .card h3 {
-            margin-bottom: 15px;
-            color: var(--accent-color);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-transform: uppercase;
         }
 
-        /* --- Membership Table --- */
+        .card p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* --- Pricing Table --- */
+        .pricing-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
             background: var(--bg-card);
+            min-width: 600px;
         }
 
         th, td {
-            padding: 15px;
+            padding: 20px;
             text-align: center;
             border: 1px solid #333;
         }
 
         th {
-            background-color: var(--accent-color);
-            text-transform: uppercase;
+            background-color: #222;
+            color: var(--accent-red);
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            background: rgba(255, 62, 62, 0.1);
         }
 
         /* --- Footer --- */
         footer {
             background: #000;
-            padding: 40px 10%;
+            padding: 60px 10%;
             text-align: center;
-            border-top: 1px solid #333;
+            border-top: 1px solid #222;
         }
 
+        .footer-logo {
+            height: 40px;
+            filter: invert(1);
+            margin-bottom: 20px;
+        }
+
+        .social-links { margin: 20px 0; }
+        .social-links a { color: white; margin: 0 10px; text-decoration: none; font-size: 0.8rem; border: 1px solid #444; padding: 5px 10px; }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+            nav { padding: 15px 5%; }
             nav ul { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .stats-bar { flex-direction: column; gap: 20px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">JK FITNESS</div>
+        <div class="logo">
+            <img src="1000059315.jpg" alt="JK Fitness Logo">
+        </div>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#services">Programs</a></li>
-            <li><a href="#membership">Pricing</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#membership">Membership</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section class="hero" id="home">
-        <h1>UNLEASH THE BEAST</h1>
-        <p>Premium coaching, state-of-the-art equipment, and a community that breeds success.</p>
-        <a href="#membership" class="btn">Start Your Journey</a>
+        <h1>EVOLVE YOUR BODY</h1>
+        <p>Expert trainers, cutting-edge equipment, and the most intense atmosphere in the city.</p>
+        <a href="#membership" class="btn">Join the Tribe</a>
     </section>
 
-    <section class="section" id="services">
-        <h2 class="section-title">Our Programs</h2>
+    <div class="stats-bar">
+        <div class="stat-item"><h2>500+</h2><p>Members</p></div>
+        <div class="stat-item"><h2>15+</h2><p>Expert Coaches</p></div>
+        <div class="stat-item"><h2>24/7</h2><p>Gym Access</p></div>
+        <div class="stat-item"><h2>0</h2><p>Excuses</p></div>
+    </div>
+
+    <section class="section" id="programs">
+        <h2 class="section-title">Our <span>Programs</span></h2>
         <div class="grid">
             <div class="card">
-                <h3>Strength Training</h3>
-                <p>Build explosive power and lean muscle with our pro-grade weight racks and personalized lifting plans.</p>
+                <h3>Body Building</h3>
+                <p>Focused hypertrophy training to maximize muscle growth and definition using elite-level equipment.</p>
             </div>
             <div class="card">
-                <h3>HIIT Circuit</h3>
-                <p>High Intensity Interval Training designed to torch calories and improve cardiovascular endurance.</p>
+                <h3>Cardio Blast</h3>
+                <p>High-energy routines designed to improve heart health and burn fat effectively.</p>
             </div>
             <div class="card">
-                <h3>Yoga & Mobility</h3>
-                <p>Recover faster and improve your range of motion with our dedicated recovery sessions.</p>
+                <h3>Power Lifting</h3>
+                <p>Squat, Bench, and Deadlift. Master the big three with our specialized strength coaches.</p>
             </div>
             <div class="card">
-                <h3>Boxing</h3>
-                <p>Master the fundamentals of footwork and striking with our championship-level coaches.</p>
+                <h3>Muay Thai</h3>
+                <p>Learn the art of eight limbs. Great for self-defense, discipline, and conditioning.</p>
             </div>
         </div>
     </section>
 
-    <section class="section" id="membership" style="background-color: #111;">
-        <h2 class="section-title">Membership Plans</h2>
-        <div style="overflow-x: auto;">
+    <section class="section" id="membership" style="background-color: #050505;">
+        <h2 class="section-title">Membership <span>Plans</span></h2>
+        <div class="pricing-container">
             <table>
                 <thead>
                     <tr>
-                        <th>Feature</th>
-                        <th>Basic</th>
-                        <th>Pro</th>
-                        <th>Elite</th>
+                        <th>Access Level</th>
+                        <th>Standard</th>
+                        <th>Professional</th>
+                        <th>Ultimate</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Gym Access</td>
-                        <td>Limited Hours</td>
-                        <td>24/7 Access</td>
-                        <td>24/7 Access</td>
+                        <td>6am - 10pm</td>
+                        <td>24/7</td>
+                        <td>24/7 + Guest Pass</td>
                     </tr>
                     <tr>
-                        <td>Personal Trainer</td>
-                        <td>-</td>
-                        <td>2 Sessions/mo</td>
+                        <td>Classes</td>
+                        <td>2 per week</td>
+                        <td>Unlimited</td>
                         <td>Unlimited</td>
                     </tr>
                     <tr>
-                        <td>Sauna & Spa</td>
-                        <td>No</td>
-                        <td>Yes</td>
-                        <td>Yes</td>
+                        <td>Personal Training</td>
+                        <td>-</td>
+                        <td>1 Session/mo</td>
+                        <td>Weekly Sessions</td>
                     </tr>
-                    <tr>
-                        <td>Monthly Price</td>
-                        <td>$29</td>
-                        <td>$59</td>
-                        <td>$99</td>
+                    <tr class="highlight">
+                        <td><strong>Price</strong></td>
+                        <td><strong>$29/mo</strong></td>
+                        <td><strong>$55/mo</strong></td>
+                        <td><strong>$89/mo</strong></td>
                     </tr>
                 </tbody>
             </table>
@@ -260,10 +325,15 @@
     </section>
 
     <footer id="contact">
-        <p>&copy; 2024 JK Fitness Club. No Excuses, Just Results.</p>
-        <p style="margin-top: 10px; color: #666;">123 Iron Street, Muscle Bay | Tel: (555) 0123-4567</p>
+        <img src="new.jpg" alt="JK Logo" class="footer-logo">
+        <div class="social-links">
+            <a href="#">INSTAGRAM</a>
+            <a href="#">FACEBOOK</a>
+            <a href="#">TWITTER</a>
+        </div>
+        <p>&copy; 2024 JK Fitness Club. All Rights Reserved.</p>
+        <p style="color: #444; font-size: 0.8rem; margin-top: 10px;">Designed for the Bold.</p>
     </footer>
 
 </body>
 </html>
-          
