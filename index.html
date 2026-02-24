@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK Fitness | Push Your Limits</title>
+    <style>
+        /* --- General Reset --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #ffffff;
+            --accent-color: #ff3e3e; /* Action Red */
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background: rgba(0,0,0,0.9);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&q=80') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+
+        /* --- Services --- */
+        .section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 40px 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        /* --- Membership Table --- */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--bg-card);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        th {
+            background-color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: #000;
+            padding: 40px 10%;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">JK FITNESS</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Programs</a></li>
+            <li><a href="#membership">Pricing</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <h1>UNLEASH THE BEAST</h1>
+        <p>Premium coaching, state-of-the-art equipment, and a community that breeds success.</p>
+        <a href="#membership" class="btn">Start Your Journey</a>
+    </section>
+
+    <section class="section" id="services">
+        <h2 class="section-title">Our Programs</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Strength Training</h3>
+                <p>Build explosive power and lean muscle with our pro-grade weight racks and personalized lifting plans.</p>
+            </div>
+            <div class="card">
+                <h3>HIIT Circuit</h3>
+                <p>High Intensity Interval Training designed to torch calories and improve cardiovascular endurance.</p>
+            </div>
+            <div class="card">
+                <h3>Yoga & Mobility</h3>
+                <p>Recover faster and improve your range of motion with our dedicated recovery sessions.</p>
+            </div>
+            <div class="card">
+                <h3>Boxing</h3>
+                <p>Master the fundamentals of footwork and striking with our championship-level coaches.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="membership" style="background-color: #111;">
+        <h2 class="section-title">Membership Plans</h2>
+        <div style="overflow-x: auto;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Basic</th>
+                        <th>Pro</th>
+                        <th>Elite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Gym Access</td>
+                        <td>Limited Hours</td>
+                        <td>24/7 Access</td>
+                        <td>24/7 Access</td>
+                    </tr>
+                    <tr>
+                        <td>Personal Trainer</td>
+                        <td>-</td>
+                        <td>2 Sessions/mo</td>
+                        <td>Unlimited</td>
+                    </tr>
+                    <tr>
+                        <td>Sauna & Spa</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Monthly Price</td>
+                        <td>$29</td>
+                        <td>$59</td>
+                        <td>$99</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2024 JK Fitness Club. No Excuses, Just Results.</p>
+        <p style="margin-top: 10px; color: #666;">123 Iron Street, Muscle Bay | Tel: (555) 0123-4567</p>
+    </footer>
+
+</body>
+</html>
+          
